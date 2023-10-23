@@ -11,7 +11,7 @@ def solution(cacheSize, cities):
         if cacheSize == 0 : 
             answer = len(cities) * 5
             break
-        # cache의 크기가 어떻든 이미 값이 들어있으면 도시명 넣지않고 값만 +1
+        # cache에 이미 값이 있으면 뺐다 넣고 + 1
         elif city in cache : 
             cache.remove(city)
             cache.append(city)
