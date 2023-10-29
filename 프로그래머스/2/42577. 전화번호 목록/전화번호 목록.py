@@ -1,12 +1,15 @@
 def solution(phone_book):
     answer = True
-    phone_book = sorted(phone_book)
+    hash_map = {}
     
-    for i in range(0, len(phone_book)-1) :
-        s = phone_book[i]
-        s2 = phone_book[i+1]
-        if s == s2[:len(s)] :
-            answer = False
-            break
+    for phone_number in phone_book:
+        hash_map[phone_number] = 1
 
+    for phone_number in phone_book:
+        temp = ""
+        for number in phone_number:
+            temp += number
+            if temp in hash_map and temp != phone_number: # 자기자신과 비교X
+                answer = False
+                
     return answer
