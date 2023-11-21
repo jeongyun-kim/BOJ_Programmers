@@ -1,11 +1,6 @@
 import Foundation
 
 func solution(_ myString:String) -> String {
-    var answer: String = ""
-    
-    for c in myString {
-        answer += String(c.uppercased())
-    }
-    
+    var answer: String = myString.uppercased()
     return answer
 }
