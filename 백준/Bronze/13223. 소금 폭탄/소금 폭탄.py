@@ -4,16 +4,15 @@
 h1, m1, s1 = map(int,input().split(":"))
 h2, m2, s2 = map(int,input().split(":"))
 
+if h2 <= h1 :
+    h2 += 24
 
 time1 = h1*3600 + m1*60 + s1
 time2 = h2*3600 + m2*60 + s2
 diff_time = time2 - time1
 
-if diff_time <= 0 :
-    diff_time += 24*3600
-
 h = diff_time // 3600
 m = (diff_time % 3600) // 60
-s = diff_time % 60
+s = diff_time % 60 
 
 print("{:02d}:{:02d}:{:02d}".format(h, m, s))
