@@ -3,6 +3,9 @@
 # 첫째줄 : 연병장의 크기 N, 조교의 수 M
 # 둘째줄 : 연병장의 각 칸의 높이 H가 순서대로 N개 주어짐
 # 셋째줄 ~ : M개의 줄에 각 조교의 지시 
+import sys
+input = sys.stdin.readline
+
 n, m = map(int, input().split())
 arr = list(map(int, input().split()))
 order = [0] * (n+2)
