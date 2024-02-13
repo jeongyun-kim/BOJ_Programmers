@@ -20,9 +20,10 @@ while start <= end :
         if money < 0 : # 현재 가진 금액보다 계획된 금액이 크다면 
             cnt += 1 # 넣고 mid만큼 인출
             money = mid - plan # 현재 가진 돈 = 인출한 돈(mid) - 계획 금액 
-    if cnt > m :
-        start = mid + 1
-    else :
-        end = mid - 1
+    if cnt > m : # 인출 횟수 > m 
+        start = mid + 1 # 인출 비용 늘리기 
+    else : # 인출 횟수 <= m 
+        end = mid - 1 # 인출 비용 줄이기 
 
+# 마지막 범위값 출력 
 print(end+1)
