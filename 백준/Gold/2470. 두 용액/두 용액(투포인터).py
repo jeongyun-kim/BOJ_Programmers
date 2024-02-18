@@ -2,8 +2,6 @@ n = int(input())
 values = sorted(list(map(int, input().split())))
 i = 0
 j = n - 1
-ans_left = i
-ans_right = j
 total = 2e+9+1
 
 while i < j :
