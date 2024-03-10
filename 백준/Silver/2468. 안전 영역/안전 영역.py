@@ -1,5 +1,5 @@
 # n : 어떤 지역을 나타내는 2차원 배열의 행과 열의 개수
-# 비의 양을 1부터 100까지 돌면서 안전한 영역이 최대의 개수가 생길 때
+# 비의 양을 0부터 100까지 돌면서 안전한 영역이 최대의 개수가 생길 때
 # 안전 영역이 최대일 때의 개수 구하기
 import sys
 sys.setrecursionlimit(10**7)
@@ -21,7 +21,7 @@ def dfs(x, y, h) :
             visited[nx][ny] = 1
             dfs(nx, ny, h)
 
-for h in range(max_height) :
+for h in range(101) :
     safe_area = 0 # 안전영역 카운트 
     visited = [[0]*(n+1) for _ in range(n+1)] # 각 구역 방문했는지 확인하는 배열
     for i in range(n) : 
