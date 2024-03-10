@@ -7,7 +7,6 @@ input = sys.stdin.readline
 
 n = int(input())
 areas = [list(map(int, input().split())) for _ in range(n)]
-max_height = max(map(max, areas))
 dx = [-1, 0, 1, 0]
 dy = [0, -1, 0, 1]
 answer = 0
