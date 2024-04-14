@@ -1,13 +1,15 @@
+# JadenCase : 모든 단어의 첫 문자가 대문자, 그 외는 소문자인 문자열
+
 def solution(s):
-    # JadenCase : 모든 단어의 첫 문자가 대문자, 그 외는 소문자
-    # 단, 첫 문자가 알파벳이 아닐 때에는 이어지는 알파벳은 소문자
-    s = s.lower()
-    answer = s[0].upper()
+    answer = ' '
     
-    for i in range(1, len(s)):
+    for c in s.lower() :
         if answer[-1] == ' ' :
-            answer += s[i].upper()
+            if c.isalpha() :
+                answer += c.upper()
+            else :
+                answer += c
         else :
-            answer += s[i]
-            
-    return answer
+            answer += c  
+        
+    return answer[1:]
