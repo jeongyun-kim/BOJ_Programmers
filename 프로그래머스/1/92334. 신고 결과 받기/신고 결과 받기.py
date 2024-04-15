@@ -1,17 +1,18 @@
+# 한 유저를 여러 번 신고할 수 있지만, 동일한 유저에 대한 신고 횟수는 1회로 처리 
+# k번 이상 신고된 유저는 게시판 이용이 정지, 해당 유저를 신고한 모든 유저에게 정지 사실 메일로 발송
 def solution(id_list, report, k):
-    # 각 유저는 한 번에 한 명의 유저 신고 가능 -> 동일 유저 신고는 1회로 처리 => 중복 제거
-    report = list(set(report))
-    reported = {name:0 for name in id_list} # 신고당한 사람
-    reporter = {name:0 for name in id_list} # 신고한 사람
+    answer = []
+    report = set(report)
+    reporters = {id:0 for id in id_list} # 신고를 한 아이디 
+    reported = {id:0 for id in id_list} # 신고당한 아이디
     
-    # k번 이상 신고된 유저는 정지 -> 신고한 모든 유저에게 정지 사실을 메일로 발송
-    for r in report : # 신고 카운트
-        reported_p = r.split(' ')[1] # r1은 신고한 사람, r2는 신고당한 사람
-        reported[reported_p] += 1
-    
-    for r in report : 
-        reporter_p, reported_p = r.split(' ') 
-        if reported[reported_p] >= k : # 당한 이가 신고 횟수가 k이상이면
-            reporter[reporter_p] += 1 # 메일 발송
-    
-    return list(reporter.values())
+    for re in report :
+        id1, id2 = re.split(" ")
+        reported[id2] += 1
+        
+    for re in report :
+        id1, id2 = re.split(" ")
+        if reported[id2] >= k :
+            reporters[id1] += 1
+            
+    return list(reporters.values())
